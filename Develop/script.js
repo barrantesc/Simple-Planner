@@ -5,7 +5,17 @@ $("#currentDay").text(moment().format("dddd, MMMM Do YYYY, h:mm a"));
 
 
     function hourTracker() {
-      
+        //get current number of hours.
+        var currentHour = moment().hour(); // use of moment.js
+        // When I click into a time block, then I can enter an event
+        $(".saveBtn").on('click', function(){
+            var textEvent = $(this).siblings('.description').val();
+            console.log(textEvent)
+            var timeEvent = $(this).parent().attr("id");
+            //when i click the save button for that time block, then the text for that event is saved in local storage
+            localStorage.setItem(timeEvent, textEvent);
+
+        })
 
     //When i scroll down, I am presented with time blocks for standard business hours
     
